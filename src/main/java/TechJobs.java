@@ -3,6 +3,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import static com.sun.tools.jdeprscan.CSV.split;
+
 /**
  * Created by LaunchCode
  */
@@ -119,7 +121,18 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        if (someJobs.isEmpty()) {
+            System.out.println("No Results");
+        }
 
-        System.out.println("printJobs is not implemented yet");
+        for (HashMap<String, String> jobEntry : someJobs) {
+            System.out.println("\n*****");
+            for (Map.Entry<String, String > mapElement : jobEntry.entrySet()) {
+
+                System.out.println(mapElement.getKey() + ": " + mapElement.getValue());
+            }
+            System.out.println("*****");
+        }
+
     }
 }
